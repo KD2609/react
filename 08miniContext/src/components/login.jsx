@@ -11,7 +11,7 @@ function Login() {
 
     const handleSubmit = (e) => {
         setUser({username,password});
-    }
+    } 
 
   return (
     <div>
