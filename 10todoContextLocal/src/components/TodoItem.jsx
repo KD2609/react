@@ -7,7 +7,7 @@ function TodoItem({ todo }) {
     const { updateTodo,removeTodo ,toggleTodo} = useTodo();
 
     function editTodo() {
-        updateTodo(todo.id, { ...todo, todo: todoMsg });
+        updateTodo(todo.id, { ...todo, title: todoMsg });
         setIsTodoEditable(false);
     }
 

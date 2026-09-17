@@ -9,9 +9,10 @@ function TodoForm() {
         e.preventDefault();
 
         if(!todo) return;
-        addTodo({todo,
+        addTodo({todo : todo,
             completed: false
         })
+        
         setTodo("")
     }
 
