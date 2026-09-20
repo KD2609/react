@@ -1,19 +1,19 @@
-import conf from '../config/config.js';
+import conf from '../config/config.js'
 
-import { Client, Account, ID } from 'appwrite';
+import { Client, Account, ID } from 'appwrite'
 
 export class AuthService {
 
-    client = new Client();
-    account;
+    client = new Client()
+    account
 
     constructor() {
 
         this.client
             .setEndpoint(conf.appwriteUrl)
-            .setProject(conf.appwriteProjectId);
+            .setProject(conf.appwriteProjectId)
 
-        this.account = new Account(this.client);
+        this.account = new Account(this.client)
     }
 
     async createAccount({ email, password, name }) {
@@ -25,16 +25,17 @@ export class AuthService {
                 email,
                 password,
                 name
-            });
+            })
 
             if (userAccount) {
-                return this.login({ email, password });
+                return await this.login({ email, password })
             }
 
-            return userAccount;
+            return userAccount
 
         } catch (error) {
-            throw error;
+            console.log("CREATE ACCOUNT ERROR:", error)
+            throw error
         }
     }
 
@@ -42,13 +43,14 @@ export class AuthService {
 
         try {
 
-            return await this.account.createEmailSession({
+            return await this.account.createEmailPasswordSession({
                 email,
                 password
-            });
+            })
 
         } catch (error) {
-            throw error;
+            console.log("LOGIN ERROR:", error)
+            throw error
         }
     }
 
@@ -56,12 +58,13 @@ export class AuthService {
 
         try {
 
-            return await this.account.get();
+            return await this.account.get()
 
         } catch (error) {
 
-            console.log(error);
-            return null;
+            console.log("GET CURRENT USER ERROR:", error)
+
+            return null
         }
     }
 
@@ -69,13 +72,14 @@ export class AuthService {
 
         try {
 
-            await this.account.deleteSessions();
+            await this.account.deleteSessions()
 
         } catch (error) {
 
-            throw error;
+            console.log("LOGOUT ERROR:", error)
+            throw error
         }
     }
 }
 
-export default new AuthService();
+export default new AuthService()

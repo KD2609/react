@@ -1,5 +1,4 @@
-import conf from './config/config.js';
-
+import conf from "../config/config";
 import {
     Client,
     Account,
@@ -161,10 +160,6 @@ export class Service {
         }
     }
 
-
-    // =========================
-    // FILE SERVICES
-    // =========================
 
     async uploadFile(file) {
 
