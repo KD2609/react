@@ -16,14 +16,11 @@ export default function AuthLayout({
 
         if (authentication && authStatus !== authentication) {
             navigate('/login')
-        }
-
-        if (!authentication && authStatus === true) {
+        } else if (!authentication && authStatus !== authentication) {
             navigate('/')
+        } else {
+            setLoader(false)
         }
-
-        setLoader(false)
-
     }, [authStatus, navigate, authentication])
 
     return loader ? (

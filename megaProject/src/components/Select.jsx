@@ -1,11 +1,11 @@
-import React,{useId,forwardRef} from 'react'
+import React, { useId } from 'react'
 
 function Select({
     options,
     label,
-    className= '',
+    className = '',
     ...props
-},ref) {
+}, ref) {
 
     const id = useId()
   return (
@@ -13,8 +13,8 @@ function Select({
     {label && 
         <label
         htmlFor={id}
-        className=''
-        ></label>
+        className='inline-block mb-1 pl-1'
+        >{label}</label>
     }
     <select
     {...props}

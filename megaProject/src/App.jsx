@@ -6,6 +6,7 @@ import { Outlet } from 'react-router-dom'
 import authService from './appwrite/auth.js'
 import { login, logout } from './store/authSlice.js'
 import Header from './components/header/Header.jsx'
+import Footer from './components/footer/Footer.jsx'
 
 function App() {
 
@@ -48,6 +49,7 @@ function App() {
                     <Outlet />
                 </main>
 
+                <Footer />
             </div>
 
         </div>

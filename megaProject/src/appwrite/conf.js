@@ -60,7 +60,7 @@ export class Service {
 
         } catch (error) {
 
-            console.log(error);
+            console.error("Appwrite service :: createPost :: error", error);
             return false;
 
         }
@@ -93,7 +93,7 @@ export class Service {
 
         } catch (error) {
 
-            console.log(error);
+            console.error("Appwrite service :: updatePost :: error", error);
             return false;
 
         }
@@ -173,7 +173,7 @@ export class Service {
 
         } catch (error) {
 
-            console.log(error);
+            console.error("Appwrite service :: uploadFile :: error", error);
             return false;
 
         }
